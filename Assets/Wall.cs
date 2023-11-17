@@ -14,6 +14,7 @@ public class Wall : MonoBehaviour
     void Start()
     {
         normal = FindNormal(PointA, PointB, PointC);
+        Debug.Log(gameObject.name + " normal is " + normal);
         //GameObject sphere = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere)) as GameObject;
         //Vector3 position = this.gameObject.transform.position + normal*5;
         //sphere.transform.position = position;

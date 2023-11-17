@@ -5,8 +5,9 @@ using UnityEngine;
 public class Molecule : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float CollisionRadius { get; private set; } = 0.5f;
-    public float Mass { get; private set; } = 1;
+    public float CollisionRadius  = 0.5f;
+    public float nearRadius = 1f;
+    public float Mass  = 1f;
     public Vector3 speed { get; private set; } = Vector3.zero;
     //public float forgetTime = 0.05f;
    // public List<GameObject> lastCollisionedObjects = new List<GameObject>();
@@ -40,6 +41,9 @@ public class Molecule : MonoBehaviour
                     Vector3 VnaN = new Vector3(Mathf.Abs(speed.x * n.x) * (-Mathf.Sign(speed.x)), Mathf.Abs(speed.y * n.y) * (-Mathf.Sign(speed.y)), Mathf.Abs(speed.z * n.z) * (-Mathf.Sign(speed.z)));
                     Vector3 deltaP = -2 * n * Vector3.Dot(n, speed) * Mass;
                     ChangeImpuls(deltaP);
+                    Press press = wallScript.gameObject.GetComponent<Press>();
+                    if (press != null)
+                        press.ChangeImpuls(-deltaP);
                     //Debug.Log(wallScript.normal);
                 }
             }
@@ -81,7 +85,7 @@ public class Molecule : MonoBehaviour
         if (float.IsNaN(transform.position.x) || float.IsNaN(transform.position.y) || float.IsNaN(transform.position.z))
             Debug.LogWarning("Nan!!!!");
         transform.position += speed * Time.deltaTime;
-        Debug.DrawRay(transform.position, speed, Color.blue, Time.deltaTime);
+        //Debug.DrawRay(transform.position, speed, Color.blue, Time.deltaTime);
     }
 
     //public void UpdateLastCollisionedObjects(Collider[] nearObjects)

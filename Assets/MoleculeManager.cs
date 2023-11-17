@@ -6,7 +6,7 @@ public class MoleculeManager : MonoBehaviour
 {
     [SerializeField]
     public List<GameObject> molecules = new List<GameObject>();
-    public List<Molecule> scripts = new List<Molecule>();
+    public List<Molecule> scripts { get; private set; } = new List<Molecule>();
     public int nOfMolecules;
     public float maxSpeed;
     [SerializeField]
@@ -26,6 +26,8 @@ public class MoleculeManager : MonoBehaviour
     private List<GameObject>[] listOfMoleculesInTemperaturesCubs = new List<GameObject>[10];
     [SerializeField]
     public GameObject temperatureCubePrefab;
+
+    public float intermolecularInteraction = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -84,9 +86,12 @@ public class MoleculeManager : MonoBehaviour
             float heavyUpProcent = (heavyUp * 100 / TotalUp);
             //Debug.Log("Heavy Up = " + heavyUpProcent + "%    Heavy Buttom = " + heavyButtomProcent + "%");
         }
-        for (int i = 0; i < molecules.Count; i++)
-            molecules[i].GetComponent<Molecule>().UpdateTemperatureTexture(0, hotSpeed* hotSpeed);
-        UpdateTemperatureCubs();
+        IntermolecularInteractions();
+        //if(false)
+            for (int i = 0; i < molecules.Count; i++)
+                 molecules[i].GetComponent<Molecule>().UpdateTemperatureTexture(0, hotSpeed* hotSpeed);
+        if (WithTemperatureCubs)
+            UpdateTemperatureCubs();
     }
 
     public void CreateRandomSpeedMolecules(int nOfMolecules, float maxSpeed, GameObject[]prefabs)
@@ -168,6 +173,25 @@ public class MoleculeManager : MonoBehaviour
                 if (deltasProcentage[minIndex] > deltasProcentage[k])
                     minIndex = k;
             temperatureCubs[i].GetComponent<TemperatureCube>().UpdateTemperatureTexture(minIndex);
+        }
+    }
+    public void IntermolecularInteractions()
+    {
+        foreach (Molecule molecule in scripts)
+        {
+            foreach(Molecule molecule2 in scripts)
+            {
+                if (molecule == molecule2)
+                    continue;
+                Vector3 from1to2 = molecule2.gameObject.transform.position - molecule.gameObject.transform.position;
+                Vector3 e1to2 = from1to2.normalized;
+                Vector3 forceAt1 = e1to2 * intermolecularInteraction / from1to2.magnitude;
+                if (molecule.nearRadius > from1to2.magnitude)
+                    forceAt1 = Vector3.zero;
+                Vector3 forceAt2 = -forceAt1;
+                molecule.UseForce(forceAt1);
+                molecule2.UseForce(forceAt2);
+            }
         }
     }
 }

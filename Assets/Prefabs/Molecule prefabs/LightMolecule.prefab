@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6069978728879723746}
   - component: {fileID: 6069978728879723745}
   - component: {fileID: 6069978728879723744}
-  - component: {fileID: 6069978728879723679}
+  - component: {fileID: 8292596566040738829}
   m_Layer: 0
   m_Name: LightMolecule
   m_TagString: Untagged
@@ -29,7 +29,8 @@ Transform:
   m_GameObject: {fileID: 6069978728879723678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,14 +54,16 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 42189238321aa2c439707e254a869bfc, type: 2}
+  - {fileID: 2100000, guid: 341d939e23cb6d649b8ce73c1f1fa6e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!135 &6069978728879723744
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -94,7 +98,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6069978728879723679
+--- !u!114 &8292596566040738829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,23 +107,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 6069978728879723678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ef9aa380156f4e4593b8bcf64520317, type: 3}
+  m_Script: {fileID: 11500000, guid: 586ead5e5bee4774f81f0f209f690c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkRadius: 1
-  speed: {x: 0, y: 0, z: 0}
-  mass: 1
-  forgetTime: 0.05
-  lastCollisionedObjects: []
-  lowCoeficient: 1
+  CollisionRadius: 1
+  nearRadius: 3
+  Mass: 1
   temperatureTextures:
-  - {fileID: 2100000, guid: 00040a7e8890f2a429a91c6be11e054c, type: 2}
-  - {fileID: 2100000, guid: 9a47d2e7994f4e9409929e9d926a71f8, type: 2}
-  - {fileID: 2100000, guid: 1eddde1127888d94f88d2826226587cf, type: 2}
-  - {fileID: 2100000, guid: 14890186d83917b40accd718fed0137c, type: 2}
-  - {fileID: 2100000, guid: 94f24424f7086d64c956cf8ad9ac753a, type: 2}
-  - {fileID: 2100000, guid: 191e39e06239bb54ab72c824c95052bd, type: 2}
-  - {fileID: 2100000, guid: 07c8761ad50f23945b7a5ccc3bb7b47e, type: 2}
-  - {fileID: 2100000, guid: aacd197984f903b498134b36e4eabc9c, type: 2}
-  - {fileID: 2100000, guid: 94e3b53d1d67b66449735776b097a21d, type: 2}
-  - {fileID: 2100000, guid: fc93f6c701aeaa64d90b4d898cc8da93, type: 2}
+  - {fileID: 2100000, guid: c93328aa23166764896b289206381932, type: 2}
+  - {fileID: 2100000, guid: 66b3bc0faedd4484692eb279d240d6c9, type: 2}
+  - {fileID: 2100000, guid: 40cecc4fde331ae409b86c2993f3d722, type: 2}
+  - {fileID: 2100000, guid: dc3fe3cc5eaf7da45a9636cc8a1b85a2, type: 2}
+  - {fileID: 2100000, guid: 5da864e6fb6868743a4f540950426caa, type: 2}
+  - {fileID: 2100000, guid: 06b4441338ba4924badb361219889efe, type: 2}
+  - {fileID: 2100000, guid: bbdf2ef17fae8fd4a9bfe2a2281505f9, type: 2}
+  - {fileID: 2100000, guid: 9b2120335e486914e8728b88c4e0ec17, type: 2}
+  - {fileID: 2100000, guid: 3a5adb4eedeb5354d8d827d0be86ca6b, type: 2}
+  - {fileID: 2100000, guid: 23046ff81100944409ba7b01a7ea26c1, type: 2}

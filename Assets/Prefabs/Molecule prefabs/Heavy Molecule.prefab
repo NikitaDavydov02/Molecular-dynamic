@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,14 +54,16 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f04c6bed944b9674c99ebc8965a97dad, type: 2}
+  - {fileID: 2100000, guid: 846b11de4e9c60f488da8473e8961a5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!135 &219493480938202379
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -103,12 +107,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 219493480938202485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ef9aa380156f4e4593b8bcf64520317, type: 3}
+  m_Script: {fileID: 11500000, guid: 586ead5e5bee4774f81f0f209f690c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkRadius: 0.5
-  speed: {x: 0, y: 0, z: 0}
-  mass: 10
-  forgetTime: 0.05
-  lastCollisionedObjects: []
-  lowCoeficient: 1
+  CollisionRadius: 0.5
+  Mass: 1
+  temperatureTextures:
+  - {fileID: 2100000, guid: c93328aa23166764896b289206381932, type: 2}
+  - {fileID: 2100000, guid: 66b3bc0faedd4484692eb279d240d6c9, type: 2}
+  - {fileID: 2100000, guid: 40cecc4fde331ae409b86c2993f3d722, type: 2}
+  - {fileID: 2100000, guid: dc3fe3cc5eaf7da45a9636cc8a1b85a2, type: 2}
+  - {fileID: 2100000, guid: 5da864e6fb6868743a4f540950426caa, type: 2}
+  - {fileID: 2100000, guid: 06b4441338ba4924badb361219889efe, type: 2}
+  - {fileID: 2100000, guid: bbdf2ef17fae8fd4a9bfe2a2281505f9, type: 2}
+  - {fileID: 2100000, guid: 9b2120335e486914e8728b88c4e0ec17, type: 2}
+  - {fileID: 2100000, guid: 3a5adb4eedeb5354d8d827d0be86ca6b, type: 2}
+  - {fileID: 2100000, guid: 23046ff81100944409ba7b01a7ea26c1, type: 2}

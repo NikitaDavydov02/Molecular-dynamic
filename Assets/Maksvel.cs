@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Maksvel : MonoBehaviour
 {
@@ -57,6 +58,13 @@ public class Maksvel : MonoBehaviour
             }
             Debug.Log(speeds);
             Debug.Log(nOfMolecules);
+            using(StreamWriter writer = new StreamWriter(File.Create("maksvel.txt")))
+            {
+                foreach (float speed in maksvel.Keys)
+                {
+                    writer.WriteLine(speed.ToString() + " , " + maksvel[speed].ToString());
+                }
+            }
         }
     }
 }
